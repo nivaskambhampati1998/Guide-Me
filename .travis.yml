@@ -1,0 +1,35 @@
+matrix:
+  include:
+  - language: python
+    sudo: required
+    python:
+      - 3.8
+    env:
+      - DJANGO=2.2.10
+    install:
+      - pip3 install -r requirements.txt
+    script:
+      - python manage.py test
+    before_script:
+      - python manage.py makemigrations
+      - python manage.py migrate
+    script:
+      - python manage.py check
+      
+  - language: node_js
+    node_js:
+      - "stable"
+    cache:
+      directories:
+      - node_modules
+    script:
+      - cd frontend/
+      - npm install
+      - npm test
+
+notifications:
+  email:
+    recipients:
+      - venkatesh.p18@iiits.in
+    on_success: change
+    on_failure: always

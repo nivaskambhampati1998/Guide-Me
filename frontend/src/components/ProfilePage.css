@@ -1,0 +1,31 @@
+q::before,
+q::after {
+  animation: dancing 4s linear infinite;
+  display: inline-block;
+  transform: rotate(13deg);
+}
+
+@keyframes dancing {
+  0% {
+    transform: rotate(13deg) scale(2);
+  }
+
+  25% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-13deg) scale(2);
+  }
+
+  75% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(13deg) scale(2);
+  }
+}
+q {
+  quotes: "“" "”" "“" "”";
+}
